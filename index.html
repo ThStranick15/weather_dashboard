@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js" integrity="sha256-eTyxS0rkjpLEo16uXTS0uVCS4815lc40K2iVpWDvdSY=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+</head>
+<body class="d-flex flex-column">
+    <header class="text-bg-primary text-center p-3">
+        <h1 class="">The Weather Report</h1>
+    </header>
+
+    <main class="d-flex flex-fill">
+        <aside class="d-flex flex-column text-center w-25">
+            <h2 class="bg-primary-subtle p-3">Enter City:</h2>
+            <form class="d-flex flex-row align-items-center justify-content-around">
+                <input id="city-input" class="city w-75" type="text" placeholder="City">
+                <button id="search" class="btn btn-primary">Search</button>
+            </form>
+            <article id="past-searches" class="d-flex flex-column text-bg-light border flex-fill my-2 p-3">
+            </article>
+        </aside>
+        <section class="d-flex flex-column text-center w-75 p-3">
+            <h2>Today's Weather</h2>
+            <article id="current-weather" class="d-flex flex-column align-items-center bg-primary-subtle rounded">
+                <h2 id="current-name">City:</h2>
+                <p id="current-date">Date:</p>
+                <img id="current-icon">
+                <p id="current-icon-text">Weather:</p>
+                <p id="current-temp">Temp:</p>
+                <p id="current-hum">Humidity:</p>
+                <p id="current-wind">Wind Speed:</p>
+            </article>
+            <article class="d-flex flex-column p-3">
+                <h2>5 Day Weather Forecast</h2>
+                <article id="5-day" class="d-flex flex-row justify-content-between">
+            </article>
+            </article>
+        </section>
+    </main>
+
+    <footer class="d-flex flex-row text-bg-light justify-content-between p-3">
+        <p>&copy:2024</p>
+        <p>Created By: Thomas Stranick</p>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
