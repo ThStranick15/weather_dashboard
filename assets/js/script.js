@@ -2,12 +2,14 @@ const baseURL = 'https://api.openweathermap.org/data/2.5'
 const apiKey = '40fe7d425264123a1fd0fdf4d95d23a5'
 const iconURL = 'https://openweathermap.org/img/wn'
 
+//Fetches the weather for a certian city after passing through the city name
 function getCurrentWeatherByCity(cityName){
     const add = `/weather?q=${cityName}&appid=${apiKey}&units=imperial`
     const newURL = baseURL + add
     return $.get(newURL)
 }
 
+//Outputs the current weather data in the website that was fetched in the request and stores to local storage
 function outputCurrentWeatherData(weatherData){
     const name = weatherData.name
     const date = dayjs().format('MMM D, YYYY')
@@ -43,6 +45,7 @@ function outputCurrentWeatherData(weatherData){
     return name
 }
 
+//Gets the 5-day forecast based on passed city name
 function getForecastWeather(cityName){
     const options = `/forecast?q=${cityName}&units=imperial&appid=${apiKey}`
     
@@ -51,7 +54,7 @@ function getForecastWeather(cityName){
     return $.get(url)
 }
 
-
+//Outputs the 5-day forecast into the website based on the passed fetched data
 function outputForecastWeather(forecastData){
     const forecast = $('#5-day')
     console.log(forecastData)
@@ -74,6 +77,7 @@ function outputForecastWeather(forecastData){
     return forecastData.name
 }
 
+//Adds any searches to the side bar stored in local storage
 function addPastSearches(){
     const searches = $('#past-searches')
     searches.text('')
@@ -88,6 +92,7 @@ function addPastSearches(){
     $('.past-button').on('click', addPastCity)
 }
 
+//Runthrough of all previous functions to output a cities weather
 function addCity(e){
     e.preventDefault()
     const city = $('#city-input').val()
@@ -102,6 +107,7 @@ function addCity(e){
     $('.past-button').on('click', addPastCity)
 }
 
+//Runthrough of functions to re-instate a past searched city
 function addPastCity(e){
     e.preventDefault()
     const pastCity = e.target
@@ -112,11 +118,10 @@ function addPastCity(e){
     .then(outputForecastWeather)
 }
 
+//Initialization of page
 function init(){
     $('#search').on('click', addCity)
     addPastSearches()
-    
-    
 }
 
 init()
